@@ -18,30 +18,25 @@
 
             OperationType operationType = AskOperationType();
 
-            switch(operationType)
+            if (operationType == OperationType.Plus)
             {
-                case OperationType.Plus:
-                    result = numberOne + numberTwo;
-                    operationName = "sum";
-                    break;
-
-                case OperationType.Minus:
-                    result = numberOne - numberTwo;
-                    operationName = "difference";
-                    break;
-
-                case OperationType.Multiplication:
-                    result = numberOne * numberTwo;
-                    operationName = "product";
-                    break;
-
-                case OperationType.Division:
-                    result = numberOne / numberTwo;
-                    operationName = "quotient";
-                    break;
-
-                default:
-                    throw new InvalidOperationException("Incorrect operation type!");
+                result = numberOne + numberTwo;
+                operationName = "sum";
+            }
+            else if (operationType == OperationType.Minus)
+            {
+                result = numberOne - numberTwo;
+                operationName = "difference";
+            }
+            else if (operationType == OperationType.Multiplication)
+            {
+                result = numberOne * numberTwo;
+                operationName = "product";
+            }
+            else
+            {
+                result = numberOne / numberTwo;
+                operationName = "quotient";
             }
             
             Console.WriteLine($"The { operationName } is { result }.");
