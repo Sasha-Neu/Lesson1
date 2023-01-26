@@ -26,11 +26,25 @@
         /// <returns>Number</returns>
         static decimal EnterNumber()
         {
-            Console.WriteLine("Please enter a number:");
+            while(true)
+            {
+                Console.WriteLine("Please enter a number:");
 
-            var readString = Console.ReadLine();
+                var readString = Console.ReadLine();
 
-            return decimal.Parse(readString);
+                bool isSuccess;
+                decimal result;
+                isSuccess = decimal.TryParse(readString, out result);
+
+                if (isSuccess)
+                {
+                    return result;
+                }
+                else
+                {
+                    Console.WriteLine("Please enter the number in a correct format!");
+                }
+            }
         }
     }
 }
