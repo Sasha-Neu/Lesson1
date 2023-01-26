@@ -15,9 +15,18 @@
             numberOne = EnterNumber();
             numberTwo = EnterNumber();
 
-            result = numberOne + numberTwo;
+            OperationType operationType = AskOperationType();
 
-            Console.WriteLine($"The sum is { result }");
+            if (operationType == OperationType.Plus)
+            {
+                result = numberOne + numberTwo;
+            }
+            else
+            {
+                result = numberOne - numberTwo;
+            }
+
+            Console.WriteLine($"The result is { result }");
         }
 
         /// <summary>
@@ -44,6 +53,33 @@
                 {
                     Console.WriteLine("Please enter the number in a correct format!");
                 }
+            }
+        }
+
+        /// <summary>
+        /// Asking the user for the operation type.
+        /// </summary>
+        /// <returns>Operation type</returns>
+        static OperationType AskOperationType()
+        {
+            Console.WriteLine("Please type + if you want to add and - if you want to subtract.");
+
+            var readString = Console.ReadLine();
+
+            if (readString == "+")
+            {
+                return OperationType.Plus;
+            }
+            else if (readString == "-")
+            {
+                return OperationType.Minus;
+            }
+            else
+            {
+                Console.WriteLine("Please type + if you want to add and - if you want to subtract.");
+                Environment.Exit(1);
+
+                return OperationType.Minus; // Never will be reached because of Exit()
             }
         }
     }
