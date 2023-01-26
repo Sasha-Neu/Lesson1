@@ -11,6 +11,7 @@
             decimal numberOne;
             decimal numberTwo;
             decimal result;
+            string operationName;
 
             numberOne = EnterNumber();
             numberTwo = EnterNumber();
@@ -20,13 +21,15 @@
             if (operationType == OperationType.Plus)
             {
                 result = numberOne + numberTwo;
+                operationName = "sum";
             }
             else
             {
                 result = numberOne - numberTwo;
+                operationName = "difference";
             }
-
-            Console.WriteLine($"The result is { result }");
+            
+            Console.WriteLine($"The { operationName } is { result }.");
         }
 
         /// <summary>
