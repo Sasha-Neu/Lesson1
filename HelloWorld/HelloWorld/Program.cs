@@ -8,28 +8,29 @@
         /// <param name="args">Command line arguments</param>
         static void Main(string[] args)
         {
-            string name;
+            decimal numberOne;
+            decimal numberTwo;
+            decimal result;
 
-            name = EnterName();
+            numberOne = EnterNumber();
+            numberTwo = EnterNumber();
 
-            var greeting = "Hello";
-           
+            result = numberOne + numberTwo;
 
-            Console.WriteLine($"{ greeting }, { name }!");
+            Console.WriteLine($"The sum is { result }");
         }
 
         /// <summary>
-        /// Entering name from console
+        /// User enters a number
         /// </summary>
-        /// <returns>Username</returns>
-        static string EnterName()
+        /// <returns>Number</returns>
+        static decimal EnterNumber()
         {
-            Console.WriteLine("Please, enter your name:");
+            Console.WriteLine("Please enter a number:");
 
-            string userName;
-            userName = Console.ReadLine();
+            var readString = Console.ReadLine();
 
-            return userName;
+            return decimal.Parse(readString);
         }
     }
 }
