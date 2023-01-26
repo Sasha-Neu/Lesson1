@@ -23,10 +23,20 @@
                 result = numberOne + numberTwo;
                 operationName = "sum";
             }
-            else
+            else if (operationType == OperationType.Minus)
             {
                 result = numberOne - numberTwo;
                 operationName = "difference";
+            }
+            else if (operationType == OperationType.Multiplication)
+            {
+                result = numberOne * numberTwo;
+                operationName = "product";
+            }
+            else
+            {
+                result = numberOne / numberTwo;
+                operationName = "quotient";
             }
             
             Console.WriteLine($"The { operationName } is { result }.");
@@ -65,7 +75,7 @@
         /// <returns>Operation type</returns>
         static OperationType AskOperationType()
         {
-            Console.WriteLine("Please type + if you want to add and - if you want to subtract.");
+            Console.WriteLine("Please type +, -, * or / for operation type.");
 
             var readString = Console.ReadLine();
 
@@ -77,9 +87,17 @@
             {
                 return OperationType.Minus;
             }
+            else if (readString == "*")
+            {
+                return OperationType.Multiplication;
+            }
+            else if (readString == "/")
+            {
+                return OperationType.Division;
+            }
             else
             {
-                Console.WriteLine("Please type + if you want to add and - if you want to subtract.");
+                Console.WriteLine("Please type +, -, * or / for operation type.");
                 Environment.Exit(1);
 
                 return OperationType.Minus; // Never will be reached because of Exit()

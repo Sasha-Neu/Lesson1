@@ -7,6 +7,10 @@
     {
         Plus,
 
-        Minus
+        Minus,
+
+        Multiplication,
+
+        Division
     }
 }
