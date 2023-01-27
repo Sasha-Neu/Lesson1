@@ -54,11 +54,8 @@
 
                 var readString = Console.ReadLine();
 
-                bool isSuccess;
                 decimal result;
-                isSuccess = decimal.TryParse(readString, out result);
-
-                if (isSuccess)
+                if (decimal.TryParse(readString, out result))
                 {
                     return result;
                 }
@@ -75,31 +72,28 @@
         /// <returns>Operation type</returns>
         static OperationType AskOperationType()
         {
-            Console.WriteLine("Please type +, -, * or / for operation type.");
-
-            var readString = Console.ReadLine();
-
-            if (readString == "+")
-            {
-                return OperationType.Plus;
-            }
-            else if (readString == "-")
-            {
-                return OperationType.Minus;
-            }
-            else if (readString == "*")
-            {
-                return OperationType.Multiplication;
-            }
-            else if (readString == "/")
-            {
-                return OperationType.Division;
-            }
+            while(true)
             {
                 Console.WriteLine("Please type +, -, * or / for operation type.");
-                Environment.Exit(1);
 
-                return OperationType.Minus; // Never will be reached because of Exit()
+                var readString = Console.ReadLine();
+
+                if (readString == "+")
+                {
+                    return OperationType.Plus;
+                }
+                else if (readString == "-")
+                {
+                    return OperationType.Minus;
+                }
+                else if (readString == "*")
+                {
+                    return OperationType.Multiplication;
+                }
+                else if (readString == "/")
+                {
+                    return OperationType.Division;
+                }
             }
         }
     }
