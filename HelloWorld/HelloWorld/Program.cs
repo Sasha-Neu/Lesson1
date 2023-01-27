@@ -95,7 +95,6 @@
             {
                 return OperationType.Division;
             }
-            else
             {
                 Console.WriteLine("Please type +, -, * or / for operation type.");
                 Environment.Exit(1);
